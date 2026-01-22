@@ -84,8 +84,11 @@ export default function Index() {
         }
       })
       console.log("This is my inserted Data--", result.data);
+      router.replace('/(tabs)/Home')
     } catch (error) {
       console.log(error);
+      router.replace('/(tabs)/Home')
+
     }
   }
 
