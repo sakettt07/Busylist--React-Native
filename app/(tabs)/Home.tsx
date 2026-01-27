@@ -4,6 +4,7 @@ import Header from '@/components/HomeScreen/Header'
 import Colors from '@/services/Colors'
 import Sliders from '@/components/HomeScreen/Slider'
 import Categories from '@/components/HomeScreen/Categories'
+import PopularBusinessList from '@/components/HomeScreen/PopularBusinessList'
 
 export default function Home() {
     return (
@@ -20,6 +21,7 @@ export default function Home() {
             <Header />
             <Sliders />
             <Categories />
+            <PopularBusinessList />
         </View>
     )
 }
