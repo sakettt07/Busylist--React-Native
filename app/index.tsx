@@ -24,7 +24,6 @@ export default function Index() {
   const { startSSOFlow } = useSSO()
   const navigation = useNavigation();
   const { user } = useUser();
-  console.log("This is my user----", user);
   const router = useRouter();
   useEffect(() => {
     navigation.setOptions({

@@ -9,8 +9,8 @@ import {
 } from "react-native";
 
 const { width } = Dimensions.get("window");
-const ITEM_WIDTH = width * 0.88;
-const SPACING = 16;
+const ITEM_WIDTH = width * 0.9
+const SPACING = 1;
 
 type SliderType = {
     name: string;
@@ -62,19 +62,6 @@ export default function Sliders() {
                     </View>
                 )}
             />
-
-            {/* Pagination dots */}
-            <View style={styles.dotsContainer}>
-                {slidersData.map((_, index) => (
-                    <View
-                        key={index}
-                        style={[
-                            styles.dot,
-                            activeIndex === index && styles.activeDot,
-                        ]}
-                    />
-                ))}
-            </View>
         </View>
     );
 }
@@ -85,7 +72,7 @@ const styles = StyleSheet.create({
     },
     card: {
         width: ITEM_WIDTH,
-        height: 200,
+        height: 170,
         marginRight: SPACING,
         borderRadius: 20,
         overflow: "hidden",
@@ -99,21 +86,6 @@ const styles = StyleSheet.create({
     image: {
         width: "100%",
         height: "100%",
-    },
-    dotsContainer: {
-        flexDirection: "row",
-        justifyContent: "center",
-        marginTop: 12,
-    },
-    dot: {
-        width: 8,
-        height: 8,
-        borderRadius: 4,
-        backgroundColor: "#ccc",
-        marginHorizontal: 4,
-    },
-    activeDot: {
-        backgroundColor: "#000",
-        width: 18,
-    },
+        objectFit: 'cover'
+    }
 });

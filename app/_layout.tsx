@@ -14,6 +14,8 @@ export default function RootLayout() {
     return <ActivityIndicator />
   }
   return (<ClerkProvider tokenCache={tokenCache}>
-    <Stack />
+    <Stack screenOptions={{
+      headerShown: false
+    }} />
   </ClerkProvider>);
 }

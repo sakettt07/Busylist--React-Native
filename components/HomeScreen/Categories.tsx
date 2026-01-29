@@ -1,14 +1,16 @@
 import { View, Text, FlatList, Image, TouchableOpacity } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { axiosClient } from '@/services/GlobalApi';
+import { useRouter } from 'expo-router';
 
-type categoryType = {
+export type categoryType = {
     name: string,
     isPremium: boolean,
     image: { url: string }
 }
 const Categories = () => {
     const [categoryList, setCategoryList] = useState<categoryType[]>([]);
+    const router = useRouter();
     const GetCategories = async () => {
         try {
             const response = await axiosClient.get("/categories?filters[isPremium][$eq]=true&populate=*");
@@ -34,10 +36,15 @@ const Categories = () => {
                 </Text>
             </View>
             <FlatList numColumns={3} data={categoryList} renderItem={({ item, index }) => (
-                <TouchableOpacity style={{
+                <TouchableOpacity onPress={() => router.push({
+                    pathname: '/business-list',
+                    params: {
+                        categoryName: item?.name
+                    }
+                })} style={{
                     flex: 1,
                     alignItems: 'center',
-                    padding: 10
+                    padding: 8
                 }}>
                     <Image style={{
                         width: 60, height: 60, borderRadius: 99
