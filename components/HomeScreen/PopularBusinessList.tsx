@@ -11,7 +11,9 @@ export type BusinessListType = {
     isPremium: boolean,
     category: categoryType,
     images: ImagesType[],
-    id: number
+    id: number,
+    phone: string,
+    website: string
 }
 type ImagesType = {
     url: string

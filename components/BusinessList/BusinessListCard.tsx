@@ -12,10 +12,10 @@ const BusinessListCard = ({ business }: Props) => {
     const router = useRouter();
     return (
         <TouchableOpacity onPress={() => router.push({
-            pathname: '/business-detail/index',
             params: {
                 business: JSON.stringify(business)
-            }
+            },
+            pathname: "/business-detail"
         })} style={{
             padding: 7,
             backgroundColor: Colors.WHITE,
