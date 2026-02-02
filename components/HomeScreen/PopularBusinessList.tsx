@@ -1,8 +1,9 @@
-import { View, Text, ActivityIndicator, FlatList, Image } from 'react-native'
+import { View, Text, ActivityIndicator, FlatList, Image, TouchableOpacity } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { axiosClient } from '@/services/GlobalApi';
 import { categoryType } from './Categories';
 import Colors from '@/services/Colors';
+import { useRouter } from 'expo-router';
 
 export type BusinessListType = {
     name: string,
@@ -22,6 +23,7 @@ type ImagesType = {
 const PopularBusinessList = () => {
     const [businessListData, setBusinessListData] = useState<BusinessListType[]>([]);
     const [loading, setLoading] = useState(false);
+    const router = useRouter();
 
     const getpopularBusinessList = async () => {
         setLoading(true);
@@ -53,7 +55,12 @@ const PopularBusinessList = () => {
             </View>
             {loading && <ActivityIndicator size='large' color={Colors.PRIMARY} />}
             <FlatList horizontal={true} renderItem={({ item, index }) => (
-                <View style={{
+                <TouchableOpacity onPress={() => router.push({
+                    pathname: '/business-detail',
+                    params: {
+                        business: JSON.stringify(item)
+                    }
+                })} style={{
                     width: 200,
                     height: 190,
                     marginRight: 7,
@@ -77,7 +84,7 @@ const PopularBusinessList = () => {
                             color: Colors.GRAY
                         }}>{item.address}</Text>
                     </View>
-                </View>
+                </TouchableOpacity>
             )} data={businessListData} />
         </View>
     )
