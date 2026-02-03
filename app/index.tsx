@@ -33,6 +33,7 @@ export default function Index() {
 
   const onPress = useCallback(async () => {
     try {
+      console.log("This button is pressed")
       // Start the authentication process by calling `startSSOFlow()`
       const { createdSessionId, setActive, signIn, signUp } = await startSSOFlow({
         strategy: 'oauth_google',
@@ -120,20 +121,6 @@ export default function Index() {
             fontSize: 15, marginLeft: 30
           }}>Sign In with Google</Text>
         </Pressable>
-        <View style={{
-          backgroundColor: Colors.PRIMARY,
-          borderColor: Colors.PRIMARY,
-          padding: 10,
-          alignItems: "center",
-          marginTop: 10,
-          borderRadius: 99
-        }}>
-          <Text style={{
-            fontFamily: 'appSemi-BoldFont',
-            fontSize: 15,
-
-          }}>Skip</Text>
-        </View>
       </View>
     </View>
   );

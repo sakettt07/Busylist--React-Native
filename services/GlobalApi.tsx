@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 export const axiosClient = axios.create({
-    baseURL: 'http://192.168.1.5:1337/api',
+    baseURL: 'https://safe-fun-8882babc35.strapiapp.com/api',
     headers: {
         "Content-Type": 'application/json',
-        Authorization: `Bearer ${process.env.EXPO_PUBLIC_STRAPI_API_KEY}`
+        Authorization: `Bearer ${process.env.EXPO_PUBLIC_PROD_TOKEN}`
     }
 })
